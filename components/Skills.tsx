@@ -71,7 +71,7 @@ const levelDots = (level: number) =>
   Array.from({ length: 5 }).map((_, i) => (
     <span
       key={i}
-      className={`h-2.5 w-2.5 rounded-full ${
+      className={`h-2 w-2 rounded-full ${
         i < level ? "bg-sky-600" : "bg-gray-300"
       }`}
     />
@@ -79,36 +79,46 @@ const levelDots = (level: number) =>
 
 export default function SkillsServer() {
   return (
-    <section id="skills" className="bg-slate-50 py-20 px-6">
-      <div className="text-center mb-16">
-        <Badge className="bg-blue-100 text-blue-700">Skills</Badge>
+    <section id="skills" className="bg-slate-50 py-16 px-4 sm:px-6 md:px-10">
+      <div className="text-center mb-12 sm:mb-14">
+        <Badge className="bg-blue-100 text-blue-700 text-xs sm:text-sm px-3 py-1">
+          Skills
+        </Badge>
       </div>
       <div className="max-w-[1100px] mx-auto">
         {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-tight">
+        <div className="text-center mb-12 sm:mb-16 px-2">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             Skills &{" "}
             <span className="bg-gradient-to-r from-sky-500 to-indigo-500 text-transparent bg-clip-text">
               Technologies
             </span>
           </h2>
-          <p className="mt-4 text-gray-600 text-lg max-w-xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
             A blend of technical capabilities and problem-solving acumen.
           </p>
         </div>
 
         {/* Skills */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
           {skillGroups.map(({ label, items, icon }) => (
-            <div key={label} className="bg-white rounded-xl shadow-sm p-6">
-              <div className="flex items-center gap-3 mb-4">
+            <div
+              key={label}
+              className="bg-white rounded-xl shadow-sm p-4 sm:p-6"
+            >
+              <div className="flex items-center gap-2 sm:gap-3 mb-3">
                 {icon}
-                <h4 className="text-lg font-semibold text-gray-800">{label}</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-800">
+                  {label}
+                </h4>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {items.map(({ name, level }) => (
-                  <li key={name} className="flex justify-between items-center">
-                    <span className="text-sm text-gray-700">{name}</span>
+                  <li
+                    key={name}
+                    className="flex justify-between items-center text-sm sm:text-base"
+                  >
+                    <span className="text-gray-700">{name}</span>
                     <div className="flex gap-1">{levelDots(level)}</div>
                   </li>
                 ))}
@@ -118,24 +128,28 @@ export default function SkillsServer() {
         </div>
 
         {/* Certifications & Soft Skills */}
-        <div className="grid md:grid-cols-2 gap-10 mt-16">
-          <div className="bg-sky-600 text-white rounded-xl p-6 shadow-md">
-            <div className="flex items-center gap-3 mb-4">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 mt-12 sm:mt-16">
+          <div className="bg-sky-600 text-white rounded-xl p-4 sm:p-6 shadow-md">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3">
               <BadgeCheck className="w-5 h-5" />
-              <h4 className="text-lg font-semibold">Certifications</h4>
+              <h4 className="text-base sm:text-lg font-semibold">
+                Certifications
+              </h4>
             </div>
-            <ul className="space-y-2 pl-4 list-disc text-sm">
+            <ul className="space-y-1 sm:space-y-2 pl-5 list-disc text-xs sm:text-sm">
               {certifications.map((cert) => (
                 <li key={cert}>{cert}</li>
               ))}
             </ul>
           </div>
-          <div className="bg-indigo-600 text-white rounded-xl p-6 shadow-md">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="bg-indigo-600 text-white rounded-xl p-4 sm:p-6 shadow-md">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3">
               <Brain className="w-5 h-5" />
-              <h4 className="text-lg font-semibold">Soft Skills</h4>
+              <h4 className="text-base sm:text-lg font-semibold">
+                Soft Skills
+              </h4>
             </div>
-            <ul className="space-y-2 pl-4 list-disc text-sm">
+            <ul className="space-y-1 sm:space-y-2 pl-5 list-disc text-xs sm:text-sm">
               {softSkills.map((skill) => (
                 <li key={skill}>{skill}</li>
               ))}

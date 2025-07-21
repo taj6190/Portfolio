@@ -14,7 +14,6 @@ import {
 } from "react-icons/fa";
 import { SiDjango, SiJavascript, SiMysql } from "react-icons/si";
 
-// List of technologies
 const techStack = [
   "React",
   "JavaScript",
@@ -32,7 +31,6 @@ const techStack = [
   "Project Management",
 ];
 
-// Map tech name to corresponding icon
 const techIconMap: Record<string, React.ReactNode> = {
   React: <FaReact className="text-sky-500" />,
   JavaScript: <SiJavascript className="text-yellow-400" />,
@@ -52,10 +50,12 @@ const techIconMap: Record<string, React.ReactNode> = {
 
 export default function TechStack() {
   return (
-    <section id="techstack" className="bg-white py-20 px-6">
-      <div className="text-center mb-16">
-        <Badge className="bg-blue-100 text-blue-700">Tech Stack</Badge>
-        <h2 className="text-4xl font-extrabold mt-4 text-gray-900">
+    <section id="techstack" className="bg-white py-14 px-4 sm:px-6">
+      <div className="text-center mb-12">
+        <Badge className="bg-blue-100 text-blue-700 text-xs sm:text-sm px-3 py-1">
+          Tech Stack
+        </Badge>
+        <h2 className="text-3xl sm:text-4xl font-extrabold mt-4 text-gray-900">
           Some of My{" "}
           <span className="bg-gradient-to-r from-sky-500 to-indigo-600 bg-clip-text text-transparent">
             Best Work
@@ -63,24 +63,24 @@ export default function TechStack() {
         </h2>
       </div>
       <div className="max-w-[1200px] mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
           My{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-indigo-600">
             Tech Stack
           </span>
         </h2>
-        <p className="mt-2 text-lg text-slate-600 max-w-2xl mx-auto mb-12">
+        <p className="mt-1 mb-8 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
           Tools, frameworks, and technologies I use regularly to build and
           deploy full-stack solutions.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-4 gap-4">
           {techStack.map((tech) => (
             <div
               key={tech}
-              className="flex flex-col items-center justify-center bg-slate-50 border border-gray-200 rounded-xl shadow-sm p-6 h-40 w-full transition hover:shadow-md"
+              className="flex flex-col items-center justify-center bg-slate-50 border border-gray-200 rounded-lg shadow-sm p-4 h-28 w-full transition hover:shadow-md"
             >
-              <div className="mb-3">
+              <div className="mb-1">
                 {techIconMap[tech] &&
                 React.isValidElement(techIconMap[tech]) ? (
                   React.cloneElement(
@@ -94,17 +94,17 @@ export default function TechStack() {
                             className?: string;
                           }>
                         ).props.className,
-                        "h-12 w-12 mb-2",
+                        "h-8 w-8 mb-1",
                       ]
                         .filter(Boolean)
                         .join(" "),
                     }
                   )
                 ) : (
-                  <Box className="h-12 w-12 text-gray-400 mb-2" />
+                  <Box className="h-8 w-8 text-gray-400 mb-1" />
                 )}
               </div>
-              <span className="text-lg font-semibold text-gray-800 text-center">
+              <span className="text-xs sm:text-sm font-semibold text-gray-800 text-center leading-tight break-words">
                 {tech}
               </span>
             </div>
