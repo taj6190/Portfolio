@@ -17,25 +17,27 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const barCls =
-    "fixed top-5 right-4 sm:top-6 sm:left-1/2 sm:-translate-x-1/2 " +
-    "z-50 flex items-center rounded-full border border-white/20 backdrop-blur-md shadow-md " +
-    "px-3 py-2 sm:px-6 sm:py-3 bg-white/10 " +
-    "w-max max-w-[90vw]"; // ❶ never wider than 90 % of viewport
+  const navBaseClasses =
+    "fixed top-5 right-4 z-50 flex items-center rounded-full px-2 py-1 w-max max-w-[100vw] sm:top-6 sm:left-1/2 sm:-translate-x-1/2 sm:px-6 sm:py-3";
+
+  const desktopBgInitial = "rgba(240, 240, 240, 0.5)";
+  const desktopBgScrolled = "rgba(20, 20, 20, 0.5)";
 
   return (
     <>
-      {/* bar */}
-      <motion.nav
-        className={barCls}
-        animate={{
-          backgroundColor: scrolled
-            ? "rgba(20, 20, 20, 0.5)" // dark but transparent
-            : "rgba(240, 240, 240, 0.5)", // light gray and soft
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        {/* desktop links */}
+      {/* NAV WRAPPER */}
+      <nav className={navBaseClasses}>
+        {/* Desktop background layer */}
+        <motion.div
+          className="hidden sm:block fixed top-5 left-1/2 z-[-1] h-12 w-full max-w-[90vw] -translate-x-1/2 rounded-full border border-white/20 backdrop-blur-md shadow-md"
+          animate={{
+            backgroundColor: scrolled ? desktopBgScrolled : desktopBgInitial,
+          }}
+          initial={{ backgroundColor: desktopBgInitial }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        />
+
+        {/* Desktop links */}
         <ul className="hidden sm:flex gap-6 text-sm font-medium">
           {navLinks.map((l) => (
             <li key={l}>
@@ -49,17 +51,20 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* hamburger (mobile) */}
+        {/* Hamburger button mobile only */}
         <button
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
-          className="sm:hidden ml-auto p-1 text-white focus:outline-none focus:ring-2 focus:ring-sky-400"
+          className={`sm:hidden ml-auto p-1 focus:outline-none focus:ring-2 focus:ring-sky-400 transition-colors duration-300 ${
+            scrolled ? "text-black" : "text-white"
+          } hover:text-sky-500`}
+          style={{ backgroundColor: "transparent" }}
         >
-          <Menu size={24} />
+          <Menu size={28} />
         </button>
-      </motion.nav>
+      </nav>
 
-      {/* mobile canvas menu */}
+      {/* Mobile drawer menu */}
       <AnimatePresence>
         {menuOpen && (
           <>

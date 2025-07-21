@@ -18,7 +18,7 @@ export default function HeroServer() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen w-full items-center justify-center bg-slate-900 px-4 pt-32 pb-32 sm:px-6 sm:pt-40 sm:pb-20 text-white"
+      className="relative flex min-h-screen w-full items-center justify-center bg-slate-900 px-4 pt-20 pb-16 sm:px-6 sm:pt-20 sm:pb-16 text-white"
     >
       {/* Background Blobs */}
       <div className="absolute inset-0 -z-30 overflow-hidden">
