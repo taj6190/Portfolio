@@ -68,6 +68,3 @@ export default function Home() {
     </>
   );
 }
-
-
-can you do something with my page.tsx so it will look better also add the progress bar at the rigt
