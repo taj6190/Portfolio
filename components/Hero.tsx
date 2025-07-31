@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Download, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Download, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,9 +29,16 @@ export default function HeroServer() {
       <div className="grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
         {/* Left: Text */}
         <div className="space-y-5 text-center lg:text-left px-2 sm:px-0">
-          <Badge className="bg-sky-500/20 text-sky-300 text-xs sm:text-sm px-3 py-1">
-            Available for Opportunities
-          </Badge>
+          <div className="flex flex-col items-center lg:items-start gap-2 mx-auto lg:mx-0 max-w-max">
+            <Badge className="bg-sky-500/20 text-sky-300 text-xs sm:text-sm px-3 py-1">
+              Available for Opportunities
+            </Badge>
+
+            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-600/20 via-indigo-500/20 to-sky-600/20 px-3 sm:px-4 py-1 sm:py-1.5 text-[12px] sm:text-sm font-medium text-sky-200 ring-1 ring-sky-400/30 shadow-sm backdrop-blur-md">
+              <Clock className="h-4 w-4 text-sky-400" />
+              Timezone Flexible — Happy to collaborate globally
+            </div>
+          </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
             MD Syedy{" "}
@@ -122,7 +129,7 @@ export default function HeroServer() {
           </div>
 
           {/* Floating Skill Tags */}
-          <div className="absolute -top-3 -right-3 rounded-full bg-sky-500 px-2 py-1 text-xs font-bold text-white shadow-lg animate-pulse">
+          <div className="absolute top-6 right-4 rounded-full bg-sky-500 px-2 py-1 text-xs font-bold text-white shadow-lg animate-pulse">
             React
           </div>
           <div className="absolute -bottom-3 left-1/4 rounded-full bg-indigo-500 px-2 py-1 text-xs font-bold text-white shadow-lg animate-pulse [animation-delay:1s]">
@@ -131,13 +138,6 @@ export default function HeroServer() {
           <div className="absolute top-1/3 -left-3 rounded-full bg-emerald-500 px-2 py-1 text-xs font-bold text-white shadow-lg animate-pulse [animation-delay:2s]">
             JavaScript
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="h-8 w-4 rounded-full border-2 border-white/30 flex justify-center">
-          <div className="mt-1 h-2 w-1 rounded-full bg-white/60" />
         </div>
       </div>
     </section>

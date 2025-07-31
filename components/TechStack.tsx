@@ -55,13 +55,8 @@ export default function TechStack() {
         <Badge className="bg-blue-100 text-blue-700 text-xs sm:text-sm px-3 py-1">
           Tech Stack
         </Badge>
-        <h2 className="text-3xl sm:text-4xl font-extrabold mt-4 text-gray-900">
-          Some of My{" "}
-          <span className="bg-gradient-to-r from-sky-500 to-indigo-600 bg-clip-text text-transparent">
-            Best Work
-          </span>
-        </h2>
       </div>
+
       <div className="max-w-[1200px] mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
           My{" "}
@@ -74,13 +69,14 @@ export default function TechStack() {
           deploy full-stack solutions.
         </p>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto px-4">
           {techStack.map((tech) => (
             <div
               key={tech}
-              className="flex flex-col items-center justify-center bg-slate-50 border border-gray-200 rounded-lg shadow-sm p-4 h-28 w-full transition hover:shadow-md"
+              className="aspect-square flex flex-col items-center justify-center bg-white border border-gray-200 rounded-md
+        shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer"
             >
-              <div className="mb-1">
+              <div className="mb-3 text-sky-600">
                 {techIconMap[tech] &&
                 React.isValidElement(techIconMap[tech]) ? (
                   React.cloneElement(
@@ -94,17 +90,17 @@ export default function TechStack() {
                             className?: string;
                           }>
                         ).props.className,
-                        "h-8 w-8 mb-1",
+                        "h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10",
                       ]
                         .filter(Boolean)
                         .join(" "),
                     }
                   )
                 ) : (
-                  <Box className="h-8 w-8 text-gray-400 mb-1" />
+                  <Box className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-gray-400" />
                 )}
               </div>
-              <span className="text-xs sm:text-sm font-semibold text-gray-800 text-center leading-tight break-words">
+              <span className="text-center font-semibold text-gray-800 text-xs sm:text-sm lg:text-base">
                 {tech}
               </span>
             </div>
